@@ -1,0 +1,357 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
+@import "tailwindcss";
+
+/* =========================================================
+   Theme
+   ========================================================= */
+
+@theme {
+    --font-sans: "Plus Jakarta Sans", sans-serif;
+
+    /* Colors */
+    --color-cream-surface: #F4F6F3;
+    --color-surface-container: #EAEFEA;
+    --color-surface-container-high: #DFE7DF;
+    --color-surface-container-low: #F7F8F5;
+    --color-surface-container-lowest: #FFFFFF;
+    --color-surface-cream: #FAFAF7;
+    --color-cream-canvas: #FFFFFF;
+
+    --color-amber-cta: #EA580C;
+    --color-amber-hover: #C2410C;
+    --color-action-hover: #C2410C;
+
+    --color-forest-deep: #0B3B24;
+    --color-forest-medium: #0D3E2E;
+    --color-forest-darkest: #082618;
+
+    --color-primary: #0B3B24;
+    --color-on-primary: #FFFFFF;
+
+    --color-charcoal-text: #1A2421;
+    --color-charcoal-muted: #4B5563;
+    --color-border-subtle: #E2E8E4;
+
+    --color-success-leaf: #16A34A;
+    --color-secondary-fixed: #F59E0B;
+
+    /* Spacing */
+    --spacing-gutter-mobile: 1rem;
+    --spacing-space-xs: 0.25rem;
+    --spacing-space-sm: 0.5rem;
+    --spacing-space-md: 1rem;
+    --spacing-space-lg: 1.5rem;
+    --spacing-space-xl: 2.5rem;
+    --spacing-space-2xl: 4rem;
+    --spacing-space-3xl: 6rem;
+    --spacing-gutter: 1.5rem;
+    --spacing-margin-mobile: 1.25rem;
+    --spacing-margin: 3rem;
+
+    /* Radius */
+    --radius-lg: 0.5rem;
+    --radius-xl: 0.75rem;
+
+    /* Typography */
+    --font-display-hero: "Plus Jakarta Sans", sans-serif;
+    --font-display-hero-mobile: "Plus Jakarta Sans", sans-serif;
+    --font-label-lg: "Plus Jakarta Sans", sans-serif;
+    --font-label-sm: "Plus Jakarta Sans", sans-serif;
+    --font-body-lg: "Plus Jakarta Sans", sans-serif;
+
+    --font-size-display-hero: 3.5rem;
+    --font-size-label-lg: 0.875rem;
+    --font-size-label-sm: 0.75rem;
+    --font-size-body-lg: 1.125rem;
+}
+
+/* =========================================================
+   Global
+   ========================================================= */
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    overscroll-behavior: none;
+    background: #FFFFFF;
+    color: #1A2421;
+}
+
+body,
+button,
+input,
+textarea,
+select {
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+main > :first-child {
+    margin-top: 0 !important;
+}
+
+main > :last-child {
+    margin-bottom: 0 !important;
+}
+
+/* Hide scrollbar while keeping scrolling */
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* =========================================================
+   General Animations
+   ========================================================= */
+
+@keyframes smoothReveal {
+    0% {
+        opacity: 0;
+        transform: translate3d(-12px, 16px, 0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes contentImageFade {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 14px, 0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes borderRotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* =========================================================
+   About Section Image Reveal
+   ========================================================= */
+
+@keyframes aboutImageReveal {
+    0% {
+        opacity: 0;
+        transform: scale(0.90) translateY(40px);
+    }
+
+    25% {
+        opacity: 0.25;
+        transform: scale(0.93) translateY(25px);
+    }
+
+    50% {
+        opacity: 0.60;
+        transform: scale(0.98) translateY(10px);
+    }
+
+    75% {
+        opacity: 0.90;
+        transform: scale(1.01) translateY(2px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.about-image-reveal {
+    will-change: transform, opacity;
+}
+
+/* =========================================================
+   Projects Section Image Reveal
+   ========================================================= */
+
+@keyframes projectImagePop {
+    0% {
+        opacity: 0;
+        transform: scale(0.90) translateY(35px);
+    }
+
+    30% {
+        opacity: 0.35;
+        transform: scale(0.94) translateY(20px);
+    }
+
+    60% {
+        opacity: 0.75;
+        transform: scale(1.015) translateY(5px);
+    }
+
+    80% {
+        opacity: 0.95;
+        transform: scale(1.005) translateY(1px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* =========================================================
+   Existing Image Reveal Classes
+   ========================================================= */
+
+.who-we-are-image-wrap {
+    opacity: 0;
+    animation: smoothReveal
+        0.8s
+        cubic-bezier(0.16, 1, 0.3, 1)
+        forwards;
+}
+
+.content-image-reveal {
+    opacity: 0;
+    animation: contentImageFade
+        0.75s
+        cubic-bezier(0.16, 1, 0.3, 1)
+        forwards;
+}
+
+/* =========================================================
+   Impact Beam Card
+   ========================================================= */
+
+.impact-beam-card {
+    position: relative;
+    background: #0D3E2E;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.impact-beam-card::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+
+    background: conic-gradient(
+        transparent 0deg,
+        transparent 280deg,
+        rgba(234, 88, 12, 0.15) 310deg,
+        rgba(234, 88, 12, 0.85) 340deg,
+        #FBBF24 355deg,
+        transparent 360deg
+    );
+
+    animation: borderRotate 7s linear infinite;
+    z-index: -2;
+}
+
+.impact-beam-card::after {
+    content: "";
+    position: absolute;
+    inset: 1.5px;
+
+    background: #0D3E2E;
+
+    border-radius: calc(0.75rem - 1.5px);
+
+    z-index: -1;
+}
+
+/* =========================================================
+   Focus Cards
+   ========================================================= */
+
+.focus-card .focus-icon-badge {
+    transition:
+        transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+        background-color 0.25s ease,
+        color 0.25s ease;
+
+    transform: translateY(0);
+}
+
+.focus-card:hover .focus-icon-badge {
+    transform: translateY(-4px);
+}
+
+.focus-card .focus-content-block {
+    transition:
+        transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+
+    transform: translateX(0);
+}
+
+.focus-card:hover .focus-content-block {
+    transform: translateX(3px);
+}
+
+/* =========================================================
+   Buttons
+   ========================================================= */
+
+.btn-interactive {
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.2s ease,
+        background-color 0.2s ease;
+}
+
+.btn-interactive:active {
+    transform: scale(0.985);
+}
+
+/* =========================================================
+   Reduced Motion
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    .who-we-are-image-wrap,
+    .content-image-reveal,
+    .about-image-reveal {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    .impact-beam-card::before {
+        animation: none !important;
+        background: rgba(234, 88, 12, 0.35);
+    }
+
+    .focus-card .focus-icon-badge,
+    .focus-card .focus-content-block,
+    .btn-interactive {
+        transition: none !important;
+        transform: none !important;
+    }
+}
