@@ -1,58 +1,142 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+ # Deliz Initiative
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Deliz Initiative is a Laravel-based non-governmental organization (NGO) website focused on making a positive impact through education, healthcare, youth empowerment, poverty alleviation, and community development.
 
-## About Laravel
+The platform aims to connect people who want to make a difference with opportunities to support communities through donations and volunteering.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+ ## About the Project
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Deliz Initiative provides an online platform where visitors can learn about the organization's mission, support its activities, and register as volunteers.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+  ## Key Features
 
-## Learning Laravel
+- **Donation System:** Provides a platform for supporting the organization's activities. Paystack payment integration is currently under development.
+- **Volunteer Registration:** Allows interested individuals to register and express their interest in volunteering.
+- **Community Development:** Supports initiatives aimed at improving people's lives and strengthening communities.
+- **Responsive Design:** Designed to provide a user-friendly experience across desktop and mobile devices.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Areas of Focus
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+1. Education
+2. Healthcare
+3. Youth Empowerment
+4. Poverty Alleviation
+5. Community Development
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+## Technology Stack
 
-## Agentic Development
+- **Backend:** PHP and Laravel
+- **Frontend:** React, Vite and Tailwind CSS
+- **Database:** MySQL
+- **Payment Gateway:** Paystack (integration in progress)
+- **Development Environment:** Visual Studio Code and WAMP
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+ ## Requirements
+
+Before installing the project, ensure you have:
+
+- PHP 8.3 or later
+- Composer
+- MySQL
+- Node.js and npm
+- Git
+
+## Installation and Setup
+
+ ### 1. Clone the Repository
 
 ```bash
-composer require laravel/boost --dev
-
-php artisan boost:install
+git clone https://github.com/felixmuruako1-hash/Deliz-Universal.git
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+ ### 2. Navigate into the Project
 
-## Contributing
+```bash
+cd Deliz-Universal
+```
+ ### 3. Install PHP Dependencies
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```bash
+composer install
+```
 
-## Code of Conduct
+  ### 4. Install Frontend Dependencies
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```bash
+npm install
+```
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### 5. Configure Environment Variables
 
-## License
+Create your environment file:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```bash
+copy .env.example .env
+```
+
+
+Generate the Laravel application key:
+
+```bash
+php artisan key:generate
+```
+
+ ### 6. Configure the Database
+
+Create a MySQL database for the project using phpMyAdmin or MySQL.
+
+Update the database settings in your `.env` file:
+
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=your_database_name
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+
+Replace the database name and credentials with your actual settings.
+
+### 7. Run Database Migrations
+
+```bash
+php artisan migrate
+```
+
+ ### 8. Start the Development Servers
+
+Open a terminal and run:
+
+```bash
+php artisan serve
+```
+
+Open another terminal and run:
+
+```bash
+npm run dev
+```
+
+Visit the local address displayed by Laravel in your browser.
+
+ ### 9. Build Frontend Assets
+
+To create a production build of the frontend assets, run:
+
+```bash
+npm run build
+```
+
+## Payment Integration
+
+Paystack integration is currently under development and is not yet fully functional.
+ ## Project Status
+
+Deliz Initiative is under active development. Features and improvements are being added as the project progresses.
+
+ ## License
+
+This project is currently developed for the Deliz Initiative organization.
