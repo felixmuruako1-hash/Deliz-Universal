@@ -1,5 +1,5 @@
 import Header from "./components/Header.jsx";
-import HeroSlider from "./components/HeroSlider.jsx";
+import HeroSlider from "./components/Heroslider.jsx";
 import TransparencyTicker from "./components/TransparencyTicker.jsx";
 import AboutSection from "./components/AboutSection.jsx";
 import FocusAreas from "./components/FocusAreas.jsx";
