@@ -45,5 +45,10 @@ jobs:
       - name: Build frontend assets
         run: npm run build
 
+      - name: Verify Vite manifest
+        run: |
+          ls -la public/build
+          test -f public/build/manifest.json
+
       - name: Run Laravel tests
         run: php artisan test
