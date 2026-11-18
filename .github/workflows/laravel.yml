@@ -42,8 +42,8 @@ jobs:
           cp .env.example .env
           php artisan key:generate
 
-      - name: Run Laravel tests
-        run: php artisan test
-
       - name: Build frontend assets
         run: npm run build
+
+      - name: Run Laravel tests
+        run: php artisan test
