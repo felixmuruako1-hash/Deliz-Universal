@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 
 import Header from "./components/Header.jsx";
@@ -105,109 +106,87 @@ export default function App() {
 
             <Footer />
 
-            {/* WhatsApp Welcome Dialogue */}
+            {/* WhatsApp Chat Widget */}
             {showWhatsAppDialog && (
                 <div
-                    className="fixed bottom-24 right-6 z-[60] w-[calc(100%-3rem)] max-w-sm"
+                    className="fixed bottom-24 right-6 z-[60] w-[calc(100%-3rem)] max-w-xs overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-2xl"
                 >
-                    <div
-                        role="dialog"
-                        aria-modal="false"
-                        aria-labelledby="whatsapp-dialog-title"
-                        className="w-full rounded-2xl border border-gray-200 bg-white p-6 text-gray-900 shadow-2xl"
-                    >
-                        {/* Dialogue Header */}
-                        <div className="mb-4 flex items-center justify-between">
-                            <div className="flex items-center gap-3">
-                                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-green-100 text-green-600">
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 24 24"
-                                        fill="currentColor"
-                                        className="h-7 w-7"
-                                    >
-                                        <path d="M20.52 3.48A11.87 11.87 0 0 0 12.07 0C5.5 0 .16 5.34.16 11.91c0 2.1.55 4.15 1.59 5.96L.06 24l6.28-1.65a11.9 11.9 0 0 0 5.73 1.46h.01c6.57 0 11.91-5.34 11.91-11.91a11.84 11.84 0 0 0-3.47-8.42Z" />
-                                    </svg>
-                                </div>
-
-                                <div>
-                                    <h2
-                                        id="whatsapp-dialog-title"
-                                        className="text-lg font-bold text-gray-900"
-                                    >
-                                        Contact Deliz Initiative
-                                    </h2>
-
-                                    <p className="text-sm text-green-600">
-                                        We're happy to hear from you!
-                                    </p>
-                                </div>
+                    {/* Green Header */}
+                    <div className="flex items-center justify-between bg-[#075E54] px-4 py-3 text-white">
+                        <div className="flex items-center gap-3">
+                            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/20">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    fill="currentColor"
+                                    className="h-6 w-6"
+                                >
+                                    <path d="M20.52 3.48A11.87 11.87 0 0 0 12.07 0C5.5 0 .16 5.34.16 11.91c0 2.1.55 4.15 1.59 5.96L.06 24l6.28-1.65a11.9 11.9 0 0 0 5.73 1.46h.01c6.57 0 11.91-5.34 11.91-11.91a11.84 11.84 0 0 0-3.47-8.42Z" />
+                                </svg>
                             </div>
 
-                            <button
-                                type="button"
-                                onClick={() => setShowWhatsAppDialog(false)}
-                                aria-label="Close dialogue"
-                                className="rounded-full p-2 text-gray-500 hover:bg-gray-100"
-                            >
-                                ✕
-                            </button>
+                            <div>
+                                <h2 className="font-semibold">
+                                    Deliz Initiative
+                                </h2>
+                                <p className="text-xs text-green-100">
+                                    We're happy to hear from you!
+                                </p>
+                            </div>
                         </div>
 
-                        {/* Welcome Message */}
-                        <p className="mb-4 text-sm leading-6 text-gray-700">
-                            Thank you for your interest in Deliz Initiative!
-                            We're glad you want to connect with us.
-                        </p>
+                        <button
+                            type="button"
+                            onClick={() => setShowWhatsAppDialog(false)}
+                            aria-label="Close chat"
+                            className="rounded-full p-2 text-white hover:bg-white/20"
+                        >
+                            ✕
+                        </button>
+                    </div>
 
-                        {/* Instructions */}
-                        <div className="mb-5 rounded-xl border border-gray-100 bg-gray-50 p-4">
-                            <h3 className="mb-2 font-semibold text-gray-900">
-                                What should you do next?
-                            </h3>
+                    {/* Chat Area */}
+                    <div className="bg-[#f7f7f7] p-4">
+                        <div className="mb-3 inline-block max-w-[95%] rounded-2xl rounded-tl-sm bg-white p-3 text-sm leading-6 text-gray-800 shadow-sm">
+                            <p className="mb-2 font-semibold">
+                                Welcome to Deliz Initiative!
+                            </p>
 
-                            <ol className="list-decimal space-y-2 pl-5 text-sm leading-6 text-gray-700">
-                                <li>
-                                    Click the Continue to WhatsApp button below.
-                                </li>
-                                <li>
-                                    WhatsApp will open with a message ready for you.
-                                </li>
-                                <li>
-                                    Send your message and tell us how we can help.
-                                </li>
-                            </ol>
+                            Thank you for reaching out. How can we help you
+                            today? Feel free to ask us about volunteering,
+                            donations, partnerships, or our projects.
+
+                            <p className="mt-2 text-right text-[10px] text-gray-400">
+                                Deliz Initiative
+                            </p>
                         </div>
 
-                        <p className="mb-5 text-sm leading-6 text-gray-700">
-                            You can contact us about volunteering, donations,
-                            partnerships, our projects, or any other inquiry.
-                        </p>
+                        {/* Contact Number */}
+                        <div className="rounded-xl border border-gray-200 bg-white p-3">
+                            <p className="text-xs text-gray-500">
+                                Chat with us on WhatsApp
+                            </p>
 
-                        {/* Continue to WhatsApp */}
+                            <p className="mt-1 font-semibold text-gray-900">
+                                +234 813 780 7605
+                            </p>
+                        </div>
+
+                        {/* WhatsApp Link */}
                         <a
                             href={whatsappLink}
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={() => setShowWhatsAppDialog(false)}
-                            className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#25D366] px-5 py-3.5 font-semibold text-white shadow-md transition hover:bg-[#1DA851]"
+                            className="mt-3 flex w-full items-center justify-center gap-2 rounded-full bg-[#25D366] px-4 py-3 text-sm font-semibold text-white transition hover:bg-[#1DA851]"
                         >
-                            Continue to WhatsApp
+                            Chat with us →
                         </a>
-
-                        {/* Cancel */}
-                        <button
-                            type="button"
-                            onClick={() => setShowWhatsAppDialog(false)}
-                            className="mt-3 w-full rounded-xl border border-gray-300 bg-white px-5 py-3 font-medium text-gray-700 transition hover:bg-gray-100"
-                        >
-                            Cancel
-                        </button>
                     </div>
                 </div>
             )}
 
-            {/* Larger Floating WhatsApp Button */}
+            {/* Floating WhatsApp Button */}
             <button
                 type="button"
                 onClick={() => setShowWhatsAppDialog((previous) => !previous)}
