@@ -108,16 +108,15 @@ export default function App() {
             {/* WhatsApp Welcome Dialogue */}
             {showWhatsAppDialog && (
                 <div
-                    className="fixed inset-0 z-[60] flex items-center justify-center bg-black/50 p-4"
-                    onClick={() => setShowWhatsAppDialog(false)}
+                    className="fixed bottom-24 right-6 z-[60] w-[calc(100%-3rem)] max-w-sm"
                 >
                     <div
                         role="dialog"
-                        aria-modal="true"
+                        aria-modal="false"
                         aria-labelledby="whatsapp-dialog-title"
-                        className="w-full max-w-md rounded-2xl bg-white p-6 shadow-2xl"
-                        onClick={(event) => event.stopPropagation()}
+                        className="w-full rounded-2xl border border-gray-200 bg-white p-6 text-gray-900 shadow-2xl"
                     >
+                        {/* Dialogue Header */}
                         <div className="mb-4 flex items-center justify-between">
                             <div className="flex items-center gap-3">
                                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-green-100 text-green-600">
@@ -134,10 +133,11 @@ export default function App() {
                                 <div>
                                     <h2
                                         id="whatsapp-dialog-title"
-                                        className="text-xl font-bold text-gray-900"
+                                        className="text-lg font-bold text-gray-900"
                                     >
                                         Contact Deliz Initiative
                                     </h2>
+
                                     <p className="text-sm text-green-600">
                                         We're happy to hear from you!
                                     </p>
@@ -154,17 +154,19 @@ export default function App() {
                             </button>
                         </div>
 
-                        <p className="mb-4 leading-7 text-gray-600">
+                        {/* Welcome Message */}
+                        <p className="mb-4 text-sm leading-6 text-gray-700">
                             Thank you for your interest in Deliz Initiative!
                             We're glad you want to connect with us.
                         </p>
 
-                        <div className="mb-5 rounded-xl bg-gray-50 p-4">
+                        {/* Instructions */}
+                        <div className="mb-5 rounded-xl border border-gray-100 bg-gray-50 p-4">
                             <h3 className="mb-2 font-semibold text-gray-900">
                                 What should you do next?
                             </h3>
 
-                            <ol className="list-decimal space-y-2 pl-5 text-sm leading-6 text-gray-600">
+                            <ol className="list-decimal space-y-2 pl-5 text-sm leading-6 text-gray-700">
                                 <li>
                                     Click the Continue to WhatsApp button below.
                                 </li>
@@ -177,11 +179,12 @@ export default function App() {
                             </ol>
                         </div>
 
-                        <p className="mb-5 text-sm text-gray-600">
+                        <p className="mb-5 text-sm leading-6 text-gray-700">
                             You can contact us about volunteering, donations,
                             partnerships, our projects, or any other inquiry.
                         </p>
 
+                        {/* Continue to WhatsApp */}
                         <a
                             href={whatsappLink}
                             target="_blank"
@@ -192,10 +195,11 @@ export default function App() {
                             Continue to WhatsApp
                         </a>
 
+                        {/* Cancel */}
                         <button
                             type="button"
                             onClick={() => setShowWhatsAppDialog(false)}
-                            className="mt-3 w-full rounded-xl border border-gray-300 px-5 py-3 font-medium text-gray-700 transition hover:bg-gray-100"
+                            className="mt-3 w-full rounded-xl border border-gray-300 bg-white px-5 py-3 font-medium text-gray-700 transition hover:bg-gray-100"
                         >
                             Cancel
                         </button>
@@ -206,8 +210,9 @@ export default function App() {
             {/* Larger Floating WhatsApp Button */}
             <button
                 type="button"
-                onClick={() => setShowWhatsAppDialog(true)}
+                onClick={() => setShowWhatsAppDialog((previous) => !previous)}
                 aria-label="Contact Deliz Initiative on WhatsApp"
+                aria-expanded={showWhatsAppDialog}
                 title="Contact us on WhatsApp"
                 className="fixed bottom-6 right-6 z-50 flex h-16 w-16 items-center justify-center rounded-full bg-[#25D366] text-white shadow-xl transition-transform duration-300 hover:scale-110"
             >
